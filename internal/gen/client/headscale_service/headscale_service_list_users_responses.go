@@ -80,6 +80,11 @@ func (o *HeadscaleServiceListUsersOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the headscale service list users o k response
+func (o *HeadscaleServiceListUsersOK) Code() int {
+	return 200
+}
+
 func (o *HeadscaleServiceListUsersOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/user][%d] headscaleServiceListUsersOK  %+v", 200, o.Payload)
 }
@@ -122,11 +127,6 @@ type HeadscaleServiceListUsersDefault struct {
 	Payload *models.RPCStatus
 }
 
-// Code gets the status code for the headscale service list users default response
-func (o *HeadscaleServiceListUsersDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this headscale service list users default response has a 2xx status code
 func (o *HeadscaleServiceListUsersDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -150,6 +150,11 @@ func (o *HeadscaleServiceListUsersDefault) IsServerError() bool {
 // IsCode returns true when this headscale service list users default response a status code equal to that given
 func (o *HeadscaleServiceListUsersDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the headscale service list users default response
+func (o *HeadscaleServiceListUsersDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *HeadscaleServiceListUsersDefault) Error() string {

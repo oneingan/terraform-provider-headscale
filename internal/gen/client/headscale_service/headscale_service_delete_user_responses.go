@@ -80,6 +80,11 @@ func (o *HeadscaleServiceDeleteUserOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the headscale service delete user o k response
+func (o *HeadscaleServiceDeleteUserOK) Code() int {
+	return 200
+}
+
 func (o *HeadscaleServiceDeleteUserOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/v1/user/{name}][%d] headscaleServiceDeleteUserOK  %+v", 200, o.Payload)
 }
@@ -120,11 +125,6 @@ type HeadscaleServiceDeleteUserDefault struct {
 	Payload *models.RPCStatus
 }
 
-// Code gets the status code for the headscale service delete user default response
-func (o *HeadscaleServiceDeleteUserDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this headscale service delete user default response has a 2xx status code
 func (o *HeadscaleServiceDeleteUserDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -148,6 +148,11 @@ func (o *HeadscaleServiceDeleteUserDefault) IsServerError() bool {
 // IsCode returns true when this headscale service delete user default response a status code equal to that given
 func (o *HeadscaleServiceDeleteUserDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the headscale service delete user default response
+func (o *HeadscaleServiceDeleteUserDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *HeadscaleServiceDeleteUserDefault) Error() string {

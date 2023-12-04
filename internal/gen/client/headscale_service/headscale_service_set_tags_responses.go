@@ -82,12 +82,17 @@ func (o *HeadscaleServiceSetTagsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the headscale service set tags o k response
+func (o *HeadscaleServiceSetTagsOK) Code() int {
+	return 200
+}
+
 func (o *HeadscaleServiceSetTagsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/machine/{machineId}/tags][%d] headscaleServiceSetTagsOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/node/{nodeId}/tags][%d] headscaleServiceSetTagsOK  %+v", 200, o.Payload)
 }
 
 func (o *HeadscaleServiceSetTagsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/machine/{machineId}/tags][%d] headscaleServiceSetTagsOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/node/{nodeId}/tags][%d] headscaleServiceSetTagsOK  %+v", 200, o.Payload)
 }
 
 func (o *HeadscaleServiceSetTagsOK) GetPayload() *models.V1SetTagsResponse {
@@ -124,11 +129,6 @@ type HeadscaleServiceSetTagsDefault struct {
 	Payload *models.RPCStatus
 }
 
-// Code gets the status code for the headscale service set tags default response
-func (o *HeadscaleServiceSetTagsDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this headscale service set tags default response has a 2xx status code
 func (o *HeadscaleServiceSetTagsDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -154,12 +154,17 @@ func (o *HeadscaleServiceSetTagsDefault) IsCode(code int) bool {
 	return o._statusCode == code
 }
 
+// Code gets the status code for the headscale service set tags default response
+func (o *HeadscaleServiceSetTagsDefault) Code() int {
+	return o._statusCode
+}
+
 func (o *HeadscaleServiceSetTagsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/machine/{machineId}/tags][%d] HeadscaleService_SetTags default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/node/{nodeId}/tags][%d] HeadscaleService_SetTags default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *HeadscaleServiceSetTagsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/machine/{machineId}/tags][%d] HeadscaleService_SetTags default  %+v", o._statusCode, o.Payload)
+	return fmt.Sprintf("[POST /api/v1/node/{nodeId}/tags][%d] HeadscaleService_SetTags default  %+v", o._statusCode, o.Payload)
 }
 
 func (o *HeadscaleServiceSetTagsDefault) GetPayload() *models.RPCStatus {

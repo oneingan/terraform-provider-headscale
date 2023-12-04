@@ -14,17 +14,17 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1GetMachineRoutesResponse v1 get machine routes response
+// V1GetNodeRoutesResponse v1 get node routes response
 //
-// swagger:model v1GetMachineRoutesResponse
-type V1GetMachineRoutesResponse struct {
+// swagger:model v1GetNodeRoutesResponse
+type V1GetNodeRoutesResponse struct {
 
 	// routes
 	Routes []*V1Route `json:"routes"`
 }
 
-// Validate validates this v1 get machine routes response
-func (m *V1GetMachineRoutesResponse) Validate(formats strfmt.Registry) error {
+// Validate validates this v1 get node routes response
+func (m *V1GetNodeRoutesResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateRoutes(formats); err != nil {
@@ -37,7 +37,7 @@ func (m *V1GetMachineRoutesResponse) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1GetMachineRoutesResponse) validateRoutes(formats strfmt.Registry) error {
+func (m *V1GetNodeRoutesResponse) validateRoutes(formats strfmt.Registry) error {
 	if swag.IsZero(m.Routes) { // not required
 		return nil
 	}
@@ -63,8 +63,8 @@ func (m *V1GetMachineRoutesResponse) validateRoutes(formats strfmt.Registry) err
 	return nil
 }
 
-// ContextValidate validate this v1 get machine routes response based on the context it is used
-func (m *V1GetMachineRoutesResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this v1 get node routes response based on the context it is used
+func (m *V1GetNodeRoutesResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateRoutes(ctx, formats); err != nil {
@@ -77,11 +77,16 @@ func (m *V1GetMachineRoutesResponse) ContextValidate(ctx context.Context, format
 	return nil
 }
 
-func (m *V1GetMachineRoutesResponse) contextValidateRoutes(ctx context.Context, formats strfmt.Registry) error {
+func (m *V1GetNodeRoutesResponse) contextValidateRoutes(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Routes); i++ {
 
 		if m.Routes[i] != nil {
+
+			if swag.IsZero(m.Routes[i]) { // not required
+				return nil
+			}
+
 			if err := m.Routes[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("routes" + "." + strconv.Itoa(i))
@@ -98,7 +103,7 @@ func (m *V1GetMachineRoutesResponse) contextValidateRoutes(ctx context.Context, 
 }
 
 // MarshalBinary interface implementation
-func (m *V1GetMachineRoutesResponse) MarshalBinary() ([]byte, error) {
+func (m *V1GetNodeRoutesResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -106,8 +111,8 @@ func (m *V1GetMachineRoutesResponse) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *V1GetMachineRoutesResponse) UnmarshalBinary(b []byte) error {
-	var res V1GetMachineRoutesResponse
+func (m *V1GetNodeRoutesResponse) UnmarshalBinary(b []byte) error {
+	var res V1GetNodeRoutesResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

@@ -12,10 +12,10 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1DebugCreateMachineRequest v1 debug create machine request
+// V1DebugCreateNodeRequest v1 debug create node request
 //
-// swagger:model v1DebugCreateMachineRequest
-type V1DebugCreateMachineRequest struct {
+// swagger:model v1DebugCreateNodeRequest
+type V1DebugCreateNodeRequest struct {
 
 	// key
 	Key string `json:"key,omitempty"`
@@ -30,18 +30,18 @@ type V1DebugCreateMachineRequest struct {
 	User string `json:"user,omitempty"`
 }
 
-// Validate validates this v1 debug create machine request
-func (m *V1DebugCreateMachineRequest) Validate(formats strfmt.Registry) error {
+// Validate validates this v1 debug create node request
+func (m *V1DebugCreateNodeRequest) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this v1 debug create machine request based on context it is used
-func (m *V1DebugCreateMachineRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validates this v1 debug create node request based on context it is used
+func (m *V1DebugCreateNodeRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *V1DebugCreateMachineRequest) MarshalBinary() ([]byte, error) {
+func (m *V1DebugCreateNodeRequest) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -49,8 +49,8 @@ func (m *V1DebugCreateMachineRequest) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *V1DebugCreateMachineRequest) UnmarshalBinary(b []byte) error {
-	var res V1DebugCreateMachineRequest
+func (m *V1DebugCreateNodeRequest) UnmarshalBinary(b []byte) error {
+	var res V1DebugCreateNodeRequest
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

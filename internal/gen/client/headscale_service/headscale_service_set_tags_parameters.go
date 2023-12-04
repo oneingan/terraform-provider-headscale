@@ -64,10 +64,10 @@ type HeadscaleServiceSetTagsParams struct {
 	// Body.
 	Body HeadscaleServiceSetTagsBody
 
-	// MachineID.
+	// NodeID.
 	//
 	// Format: uint64
-	MachineID string
+	NodeID string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -133,15 +133,15 @@ func (o *HeadscaleServiceSetTagsParams) SetBody(body HeadscaleServiceSetTagsBody
 	o.Body = body
 }
 
-// WithMachineID adds the machineID to the headscale service set tags params
-func (o *HeadscaleServiceSetTagsParams) WithMachineID(machineID string) *HeadscaleServiceSetTagsParams {
-	o.SetMachineID(machineID)
+// WithNodeID adds the nodeID to the headscale service set tags params
+func (o *HeadscaleServiceSetTagsParams) WithNodeID(nodeID string) *HeadscaleServiceSetTagsParams {
+	o.SetNodeID(nodeID)
 	return o
 }
 
-// SetMachineID adds the machineId to the headscale service set tags params
-func (o *HeadscaleServiceSetTagsParams) SetMachineID(machineID string) {
-	o.MachineID = machineID
+// SetNodeID adds the nodeId to the headscale service set tags params
+func (o *HeadscaleServiceSetTagsParams) SetNodeID(nodeID string) {
+	o.NodeID = nodeID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -155,8 +155,8 @@ func (o *HeadscaleServiceSetTagsParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 
-	// path param machineId
-	if err := r.SetPathParam("machineId", o.MachineID); err != nil {
+	// path param nodeId
+	if err := r.SetPathParam("nodeId", o.NodeID); err != nil {
 		return err
 	}
 
