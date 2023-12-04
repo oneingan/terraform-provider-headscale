@@ -14,10 +14,10 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// V1Machine v1 machine
+// V1Node v1 node
 //
-// swagger:model v1Machine
-type V1Machine struct {
+// swagger:model v1Node
+type V1Node struct {
 
 	// created at
 	// Format: date-time
@@ -78,8 +78,8 @@ type V1Machine struct {
 	ValidTags []string `json:"validTags"`
 }
 
-// Validate validates this v1 machine
-func (m *V1Machine) Validate(formats strfmt.Registry) error {
+// Validate validates this v1 node
+func (m *V1Node) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCreatedAt(formats); err != nil {
@@ -116,7 +116,7 @@ func (m *V1Machine) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1Machine) validateCreatedAt(formats strfmt.Registry) error {
+func (m *V1Node) validateCreatedAt(formats strfmt.Registry) error {
 	if swag.IsZero(m.CreatedAt) { // not required
 		return nil
 	}
@@ -128,7 +128,7 @@ func (m *V1Machine) validateCreatedAt(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1Machine) validateExpiry(formats strfmt.Registry) error {
+func (m *V1Node) validateExpiry(formats strfmt.Registry) error {
 	if swag.IsZero(m.Expiry) { // not required
 		return nil
 	}
@@ -140,7 +140,7 @@ func (m *V1Machine) validateExpiry(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1Machine) validateLastSeen(formats strfmt.Registry) error {
+func (m *V1Node) validateLastSeen(formats strfmt.Registry) error {
 	if swag.IsZero(m.LastSeen) { // not required
 		return nil
 	}
@@ -152,7 +152,7 @@ func (m *V1Machine) validateLastSeen(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1Machine) validateLastSuccessfulUpdate(formats strfmt.Registry) error {
+func (m *V1Node) validateLastSuccessfulUpdate(formats strfmt.Registry) error {
 	if swag.IsZero(m.LastSuccessfulUpdate) { // not required
 		return nil
 	}
@@ -164,7 +164,7 @@ func (m *V1Machine) validateLastSuccessfulUpdate(formats strfmt.Registry) error 
 	return nil
 }
 
-func (m *V1Machine) validatePreAuthKey(formats strfmt.Registry) error {
+func (m *V1Node) validatePreAuthKey(formats strfmt.Registry) error {
 	if swag.IsZero(m.PreAuthKey) { // not required
 		return nil
 	}
@@ -183,7 +183,7 @@ func (m *V1Machine) validatePreAuthKey(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1Machine) validateRegisterMethod(formats strfmt.Registry) error {
+func (m *V1Node) validateRegisterMethod(formats strfmt.Registry) error {
 	if swag.IsZero(m.RegisterMethod) { // not required
 		return nil
 	}
@@ -202,7 +202,7 @@ func (m *V1Machine) validateRegisterMethod(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1Machine) validateUser(formats strfmt.Registry) error {
+func (m *V1Node) validateUser(formats strfmt.Registry) error {
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -221,8 +221,8 @@ func (m *V1Machine) validateUser(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validate this v1 machine based on the context it is used
-func (m *V1Machine) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this v1 node based on the context it is used
+func (m *V1Node) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidatePreAuthKey(ctx, formats); err != nil {
@@ -243,9 +243,14 @@ func (m *V1Machine) ContextValidate(ctx context.Context, formats strfmt.Registry
 	return nil
 }
 
-func (m *V1Machine) contextValidatePreAuthKey(ctx context.Context, formats strfmt.Registry) error {
+func (m *V1Node) contextValidatePreAuthKey(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.PreAuthKey != nil {
+
+		if swag.IsZero(m.PreAuthKey) { // not required
+			return nil
+		}
+
 		if err := m.PreAuthKey.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("preAuthKey")
@@ -259,9 +264,14 @@ func (m *V1Machine) contextValidatePreAuthKey(ctx context.Context, formats strfm
 	return nil
 }
 
-func (m *V1Machine) contextValidateRegisterMethod(ctx context.Context, formats strfmt.Registry) error {
+func (m *V1Node) contextValidateRegisterMethod(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.RegisterMethod != nil {
+
+		if swag.IsZero(m.RegisterMethod) { // not required
+			return nil
+		}
+
 		if err := m.RegisterMethod.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("registerMethod")
@@ -275,9 +285,14 @@ func (m *V1Machine) contextValidateRegisterMethod(ctx context.Context, formats s
 	return nil
 }
 
-func (m *V1Machine) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+func (m *V1Node) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.User != nil {
+
+		if swag.IsZero(m.User) { // not required
+			return nil
+		}
+
 		if err := m.User.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
@@ -292,7 +307,7 @@ func (m *V1Machine) contextValidateUser(ctx context.Context, formats strfmt.Regi
 }
 
 // MarshalBinary interface implementation
-func (m *V1Machine) MarshalBinary() ([]byte, error) {
+func (m *V1Node) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -300,8 +315,8 @@ func (m *V1Machine) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *V1Machine) UnmarshalBinary(b []byte) error {
-	var res V1Machine
+func (m *V1Node) UnmarshalBinary(b []byte) error {
+	var res V1Node
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

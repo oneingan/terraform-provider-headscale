@@ -80,6 +80,11 @@ func (o *HeadscaleServiceGetRoutesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the headscale service get routes o k response
+func (o *HeadscaleServiceGetRoutesOK) Code() int {
+	return 200
+}
+
 func (o *HeadscaleServiceGetRoutesOK) Error() string {
 	return fmt.Sprintf("[GET /api/v1/routes][%d] headscaleServiceGetRoutesOK  %+v", 200, o.Payload)
 }
@@ -122,11 +127,6 @@ type HeadscaleServiceGetRoutesDefault struct {
 	Payload *models.RPCStatus
 }
 
-// Code gets the status code for the headscale service get routes default response
-func (o *HeadscaleServiceGetRoutesDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this headscale service get routes default response has a 2xx status code
 func (o *HeadscaleServiceGetRoutesDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -150,6 +150,11 @@ func (o *HeadscaleServiceGetRoutesDefault) IsServerError() bool {
 // IsCode returns true when this headscale service get routes default response a status code equal to that given
 func (o *HeadscaleServiceGetRoutesDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the headscale service get routes default response
+func (o *HeadscaleServiceGetRoutesDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *HeadscaleServiceGetRoutesDefault) Error() string {

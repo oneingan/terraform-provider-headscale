@@ -80,6 +80,11 @@ func (o *HeadscaleServiceEnableRouteOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the headscale service enable route o k response
+func (o *HeadscaleServiceEnableRouteOK) Code() int {
+	return 200
+}
+
 func (o *HeadscaleServiceEnableRouteOK) Error() string {
 	return fmt.Sprintf("[POST /api/v1/routes/{routeId}/enable][%d] headscaleServiceEnableRouteOK  %+v", 200, o.Payload)
 }
@@ -120,11 +125,6 @@ type HeadscaleServiceEnableRouteDefault struct {
 	Payload *models.RPCStatus
 }
 
-// Code gets the status code for the headscale service enable route default response
-func (o *HeadscaleServiceEnableRouteDefault) Code() int {
-	return o._statusCode
-}
-
 // IsSuccess returns true when this headscale service enable route default response has a 2xx status code
 func (o *HeadscaleServiceEnableRouteDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
@@ -148,6 +148,11 @@ func (o *HeadscaleServiceEnableRouteDefault) IsServerError() bool {
 // IsCode returns true when this headscale service enable route default response a status code equal to that given
 func (o *HeadscaleServiceEnableRouteDefault) IsCode(code int) bool {
 	return o._statusCode == code
+}
+
+// Code gets the status code for the headscale service enable route default response
+func (o *HeadscaleServiceEnableRouteDefault) Code() int {
+	return o._statusCode
 }
 
 func (o *HeadscaleServiceEnableRouteDefault) Error() string {
